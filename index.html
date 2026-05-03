@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piyush Gaming Store | Official</title>
+<style>
+        :root { --bg: #05070a; --card-bg: #0d1117; --primary: #ff2e63; --accent: #00f2ff; --green: #39ff14; }
+        body { background-color: var(--bg); color: white; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
+
+        .navbar { padding: 15px; background: #0d1117; border-bottom: 1px solid #1e293b; text-align: center; font-weight: bold; color: var(--accent); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+
+        /* RGB Border Animation */
+        .rgb-card { position: relative; background: var(--card-bg); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+        .rgb-card::before { content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: conic-gradient(transparent, var(--accent), var(--primary), transparent 60%); animation: rotate 5s linear infinite; z-index: -1; }
+        .rgb-card::after { content: ""; position: absolute; inset: 3px; background: var(--card-bg); border-radius: 17px; z-index: -1; }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        .page { display: none; padding: 15px; animation: slideUp 0.4s ease; }
+        .active-page { display: block; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Wallet Header */
+        .wallet-header { padding: 25px; text-align: center; margin-bottom: 20px; }
+        .balance-text { font-size: 42px; font-weight: 800; color: var(--primary); text-shadow: 0 0 15px rgba(255,46,99,0.4); margin: 10px 0; }
+
+        /* Grid */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .grid-item { padding: 20px; text-align: center; font-weight: bold; font-size: 13px; background: rgba(255,255,255,0.05); border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); cursor: pointer; }
+
+        /* Store Styles */
+        .cat-head { color: #8b949e; font-size: 11px; font-weight: bold; margin: 25px 0 10px 5px; text-transform: uppercase; letter-spacing: 2px; border-left: 3px solid var(--primary); padding-left: 10px; }
+        .prod-card { margin-bottom: 20px; padding: 18px; }
+        .prod-title { color: var(--accent); font-weight: 800; font-size: 17px; display: block; }
+        .prod-specs { font-size: 10px; color: var(--green); margin-bottom: 15px; font-weight: bold; text-transform: uppercase; }
+        .price-row { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px; margin-top: 6px; }
+        
+        .btn-main { background: linear-gradient(135deg, var(--primary), #ff004c); border: none; color: white; padding: 12px 20px; border-radius: 12px; font-weight: bold; cursor: pointer; width: 100%; }
+        .btn-buy { width: auto; padding: 5px 12px; font-size: 11px; background: linear-gradient(90deg, #7000ff, var(--accent)); }
+
+        .qr-frame { background: white; padding: 10px; border-radius: 15px; width: 200px; margin: 20px auto; }
+        .qr-frame img { width: 100%; border-radius: 10px; }
+        .utr-input { width: 90%; padding: 14px; margin: 15px 0; border-radius: 10px; border: 1px solid var(--accent); background: #000; color: #fff; text-align: center; font-size: 16px; }
+</style>
+  </head>
+  <body>
+
+    <div class="navbar">🔥 PIYUSH GAMING STORE 🔥</div>
+
+    <div id="dashboard" class="page active-page">
+	  <div class="rgb-card wallet-header">
+		<span style="opacity:0.7; font-size:12px;">AVAILABLE BALANCE</span>
+		<div class="balance-text" id="balance">₹1.00</div>
+		<div style="font-size:11px; color:var(--accent);">WELCOME, CHIEF!</div>
+	  </div>
+	  <div class="grid">
+		<div class="grid-item" onclick="showPage('shop')"><div style="font-size:24px;">🛒</div>STORE</div>
+		<div class="grid-item" onclick="showPage('deposit')"><div style="font-size:24px;">💰</div>ADD CASH</div>
+		<div class="grid-item" onclick="alert('Keys section coming soon!')"><div style="font-size:24px;">🔑</div>MY KEYS</div>
+		<div class="grid-item" onclick="window.location.href='https://wa.me/91XXXXXXXXXX'"><div style="font-size:24px;">📢</div>SUPPORT</div>
+	  </div>
+    </div>
+
+    <div id="shop" class="page">
+	  <button class="btn-main" style="background:#1e293b; margin-bottom:15px;" onclick="showPage('dashboard')">← BACK TO HOME</button>
+
+	  <div class="cat-head">Dripclient Collection</div>
+	  <div class="rgb-card prod-card">
+		<span class="prod-title">DRIPCLIENT NON ROOT</span>
+		<div class="prod-specs">AIMKILL • SILENT AIM • UNDER KILL</div>
+		<div class="price-row"><span>1 Day</span> <b>₹79</b> <button class="btn-main btn-buy" onclick="buy(79)">BUY</button></div>
+		<div class="price-row"><span>3 Days</span> <b>₹149</b> <button class="btn-main btn-buy" onclick="buy(149)">BUY</button></div>
+		<div class="price-row"><span>7 Days</span> <b>₹249</b> <button class="btn-main btn-buy" onclick="buy(249)">BUY</button></div>
+		<div class="price-row"><span>15 Days</span> <b>₹410</b> <button class="btn-main btn-buy" onclick="buy(410)">BUY</button></div>
+		<div class="price-row"><span>30 Days</span> <b>₹549</b> <button class="btn-main btn-buy" onclick="buy(549)">BUY</button></div>
+	  </div>
+
+	  <div class="rgb-card prod-card">
+		<span class="prod-title">DRIPCLIENT PC AIMKILL</span>
+		<div class="prod-specs">AIM KILL • SILENT AIM • UNDER KILL</div>
+		<div class="price-row"><span>1 Day</span> <b>₹139</b> <button class="btn-main btn-buy" onclick="buy(139)">BUY</button></div>
+		<div class="price-row"><span>7 Days</span> <b>₹349</b> <button class="btn-main btn-buy" onclick="buy(349)">BUY</button></div>
+		<div class="price-row"><span>15 Days</span> <b>₹499</b> <button class="btn-main btn-buy" onclick="buy(499)">BUY</button></div>
+		<div class="price-row"><span>30 Days</span> <b>₹599</b> <button class="btn-main btn-buy" onclick="buy(599)">BUY</button></div>
+	  </div>
+
+	  <div class="rgb-card prod-card">
+		<span class="prod-title">DRIPCLIENT ROOT</span>
+		<div class="prod-specs">AIM KILL • SILENT AIM • UNDER KILL</div>
+		<div class="price-row"><span>1 Day</span> <b>₹80</b> <button class="btn-main btn-buy" onclick="buy(80)">BUY</button></div>
+		<div class="price-row"><span>7 Days</span> <b>₹299</b> <button class="btn-main btn-buy" onclick="buy(299)">BUY</button></div>
+		<div class="price-row"><span>30 Days</span> <b>₹549</b> <button class="btn-main btn-buy" onclick="buy(549)">BUY</button></div>
+	  </div>
+
+	  <div class="cat-head">Premium Mobile Mods</div>
+	  <div class="rgb-card prod-card">
+		<span class="prod-title">HG CHEATS (NON+ROOT)</span>
+		<div class="prod-specs">AIM MAGNETIC • SILENT AIM • AIMBOT</div>
+		<div class="price-row"><span>1 Day</span> <b>₹80</b> <button class="btn-main btn-buy" onclick="buy(80)">BUY</button></div>
+		<div class="price-row"><span>7 Days</span> <b>₹249</b> <button class="btn-main btn-buy" onclick="buy(249)">BUY</button></div>
+		<div class="price-row"><span>10 Days</span> <b>₹299</b> <button class="btn-main btn-buy" onclick="buy(299)">BUY</button></div>
+		<div class="price-row"><span>30 Days</span> <b>₹550</b> <button class="btn-main btn-buy" onclick="buy(550)">BUY</button></div>
+	  </div>
+
+	  <div class="rgb-card prod-card">
+		<span class="prod-title">PRIME HOOK 🪝</span>
+		<div class="prod-specs">AIM MAGNET • SILENT AIM • AIMBOT</div>
+		<div class="price-row"><span>1 Day</span> <b>₹70</b> <button class="btn-main btn-buy" onclick="buy(70)">BUY</button></div>
+		<div class="price-row"><span>3 Days</span> <b>₹119</b> <button class="btn-main btn-buy" onclick="buy(119)">BUY</button></div>
+		<div class="price-row"><span>7 Days</span> <b>₹249</b> <button class="btn-main btn-buy" onclick="buy(249)">BUY</button></div>
+		<div class="price-row"><span>10 Days</span> <b>₹299</b> <button class="btn-main btn-buy" onclick="buy(299)">BUY</button></div>
+	  </div>
+
+	  <div class="rgb-card prod-card">
+		<span class="prod-title">PATO TEAM</span>
+		<div class="prod-specs">SILENT AIM • AIM MAGNET • SPEED</div>
+		<div class="price-row"><span>3 Days (Safe+Brutal)</span> <b>₹299</b> <button class="btn-main btn-buy" onclick="buy(299)">BUY</button></div>
+		<div class="price-row"><span>7 Days</span> <b>₹319</b> <button class="btn-main btn-buy" onclick="buy(319)">BUY</button></div>
+		<div class="price-row"><span>7 Days Brutal</span> <b>₹349</b> <button class="btn-main btn-buy" onclick="buy(349)">BUY</button></div>
+		<div class="price-row"><span>15 Days</span> <b>₹499</b> <button class="btn-main btn-buy" onclick="buy(499)">BUY</button></div>
+		<div class="price-row"><span>30 Days</span> <b>₹649</b> <button class="btn-main btn-buy" onclick="buy(649)">BUY</button></div>
+	  </div>
+
+	  <div class="rgb-card prod-card">
+		<span class="prod-title">BR MODS MOBILE</span>
+		<div class="prod-specs">SILENT AIM • AIM MAGNET • SPEED</div>
+		<div class="price-row"><span>1 Day</span> <b>₹80</b> <button class="btn-main btn-buy" onclick="buy(80)">BUY</button></div>
+		<div class="price-row"><span>7 Days</span> <b>₹269</b> <button class="btn-main btn-buy" onclick="buy(269)">BUY</button></div>
+		<div class="price-row"><span>15 Days</span> <b>₹449</b> <button class="btn-main btn-buy" onclick="buy(449)">BUY</button></div>
+		<div class="price-row"><span>30 Days</span> <b>₹599</b> <button class="btn-main btn-buy" onclick="buy(599)">BUY</button></div>
+	  </div>
+
+	  <div class="cat-head">PC & Bypass Series</div>
+	  <div class="rgb-card prod-card">
+		<span class="prod-title">BR MODS PC (AIM SILENT)</span>
+		<div class="prod-specs">SILENT AIM • AIM MAGNET • SPEED</div>
+		<div class="price-row"><span>1 Day</span> <b>₹80</b> <button class="btn-main btn-buy" onclick="buy(80)">BUY</button></div>
+		<div class="price-row"><span>10 Days</span> <b>₹379</b> <button class="btn-main btn-buy" onclick="buy(379)">BUY</button></div>
+		<div class="price-row"><span>30 Days</span> <b>₹699</b> <button class="btn-main btn-buy" onclick="buy(699)">BUY</button></div>
+	  </div>
+
+	  <div class="rgb-card prod-card">
+		<span class="prod-title">BR MODS PC (BYPASS+AIM)</span>
+		<div class="prod-specs">SILENT AIM • AIM MAGNET • SPEED</div>
+		<div class="price-row"><span>1 Day</span> <b>₹110</b> <button class="btn-main btn-buy" onclick="buy(110)">BUY</button></div>
+		<div class="price-row"><span>10 Days</span> <b>₹379</b> <button class="btn-main btn-buy" onclick="buy(379)">BUY</button></div>
+		<div class="price-row"><span>30 Days</span> <b>₹749</b> <button class="btn-main btn-buy" onclick="buy(749)">BUY</button></div>
+	  </div>
+
+	  <div class="cat-head">Root & iOS Specials</div>
+	  <div class="rgb-card prod-card">
+		<span class="prod-title">IOS PANEL FLUORITE FF</span>
+		<div class="prod-specs">SILENT AIM • AIMBOT • SPEED</div>
+		<div class="price-row"><span>1 Day</span> <b>₹299</b> <button class="btn-main btn-buy" onclick="buy(299)">BUY</button></div>
+		<div class="price-row"><span>7 Days</span> <b>₹749</b> <button class="btn-main btn-buy" onclick="buy(749)">BUY</button></div>
+		<div class="price-row"><span>30 Days</span> <b>₹1499</b> <button class="btn-main btn-buy" onclick="buy(1499)">BUY</button></div>
+	  </div>
+
+	  <div class="rgb-card prod-card" style="min-height:auto;">
+		<span class="prod-title">✅ ESIGN GBOX CERTIFICATE</span>
+		<div class="price-row"><span>Full Access</span> <b>₹599</b> <button class="btn-main btn-buy" onclick="buy(599)">BUY</button></div>
+	  </div>
+
+	  <div class="rgb-card prod-card">
+		<span class="prod-title">HIKARI MOD FF ROOT</span>
+		<div class="prod-specs">STREAMER PANEL • SILENT AIM • AIM MAGNET</div>
+		<div class="price-row"><span>1 Day</span> <b>₹99</b> <button class="btn-main btn-buy" onclick="buy(99)">BUY</button></div>
+		<div class="price-row"><span>15 Days</span> <b>₹349</b> <button class="btn-main btn-buy" onclick="buy(349)">BUY</button></div>
+		<div class="price-row"><span>30 Days</span> <b>₹599</b> <button class="btn-main btn-buy" onclick="buy(599)">BUY</button></div>
+	  </div>
+
+	  <div class="rgb-card prod-card">
+		<span class="prod-title">XYS CHEATS ROOT + VPHONE</span>
+		<div class="prod-specs">SILENT AIM • AIM MAGNETIC • AIMBOT</div>
+		<div class="price-row"><span>1 Day</span> <b>₹99</b> <button class="btn-main btn-buy" onclick="buy(99)">BUY</button></div>
+		<div class="price-row"><span>7 Days</span> <b>₹199</b> <button class="btn-main btn-buy" onclick="buy(199)">BUY</button></div>
+		<div class="price-row"><span>15 Days</span> <b>₹399</b> <button class="btn-main btn-buy" onclick="buy(399)">BUY</button></div>
+		<div class="price-row"><span>30 Days</span> <b>₹599</b> <button class="btn-main btn-buy" onclick="buy(599)">BUY</button></div>
+	  </div>
+    </div>
+
+    <div id="deposit" class="page">
+	  <button class="btn-main" style="background:#1e293b; margin-bottom:15px;" onclick="showPage('dashboard')">← BACK</button>
+	  <div class="rgb-card" style="padding:20px; text-align:center;">
+		<h3 style="margin:0; color:var(--accent)">INSTANT TOP-UP</h3>
+		<div class="qr-frame">
+		  <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=upi://pay?pa=chandanpiyush73-2@okhdfcbank%26pn=Piyush%20Chandan%26cu=INR" alt="QR Code">
+		</div>
+		<p style="font-size:12px;"><b>UPI:</b> chandanpiyush73-2@okhdfcbank</p>
+
+		<button class="btn-main" style="background: linear-gradient(135deg, #00c6ff, #0072ff); margin-bottom: 20px;" 
+		  onclick="window.location.href='upi://pay?pa=chandanpiyush73-2@okhdfcbank&pn=Piyush%20Chandan&cu=INR'">
+		  PAY VIA UPI APP
+		</button>
+
+		<div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:20px;">
+		  <h4 style="margin:0;">VERIFY TRANSACTION</h4>
+		  <input type="number" id="utr-box" class="utr-input" placeholder="Enter 12-Digit UTR">
+		  <button class="btn-main" onclick="verifyUTR()">VERIFY & ADD CASH</button>
+		  <p id="st-msg" style="font-size:11px; margin-top:10px;"></p>
+		</div>
+	  </div>
+    </div>
+
+<script>
+        let bal = 1.00;
+
+        function showPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+            document.getElementById(id).classList.add('active-page');
+            window.scrollTo(0,0);
+        }
+
+        function verifyUTR() {
+            let u = document.getElementById('utr-box').value;
+            let m = document.getElementById('st-msg');
+            if(u.length !== 12) { m.innerText = "❌ Invalid UTR! Enter 12 digits."; m.style.color = "red"; return; }
+            
+            m.innerText = "⏳ Verifying Payment..."; m.style.color = "var(--accent)";
+            setTimeout(() => {
+                bal += 100; // Testing credit
+                document.getElementById('balance').innerText = "₹" + bal.toFixed(2);
+                m.innerText = "✅ Success! ₹100 added."; m.style.color = "var(--green)";
+                document.getElementById('utr-box').value = "";
+            }, 3000);
+        }
+
+        function buy(p) {
+            if(bal >= p) {
+                bal -= p;
+                document.getElementById('balance').innerText = "₹" + bal.toFixed(2);
+                alert("✅ Success! Key sent to My Keys.");
+            } else {
+                alert("❌ Low Balance! Please add money.");
+                showPage('deposit');
+            }
+        }
+</script>
+  </body>
+</html>
+
